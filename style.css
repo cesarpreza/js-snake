@@ -2,13 +2,13 @@
     margin: 0;
     padding: 0;
 }
-canvas {
+/* canvas {
     background: black;
     display: block;
     margin: 0 auto;
     height: 800px;
     width: 800px; 
-}
+} */
 
 h1 {
     text-align: center;
