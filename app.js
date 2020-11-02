@@ -1,11 +1,11 @@
-const canvas;
-const canvasContext;
 
-function snakeGame() {
-    canvas = document.getElementById('game-board');
-    canvasContext = gameBoard.getContext('2d');
-    canvasContext.fillStyle = 'black';
-    canvasContext.fillRect(0, 0, canvas.width, canvas.height); 
+
+function drawSnake() {
+    const gameCanvas = document.getElementById('game-board');
+    const canvasContext = gameCanvas.getContext('2d');
+    canvasContext.fillStyle = 'blue';
+    canvasContext.fillRect(200, 200, 15, 15); 
+    
 }
 
-snakeGame();
+drawSnake();
