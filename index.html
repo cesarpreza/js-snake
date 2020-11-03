@@ -1,20 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Snake Game</title>
 </head>
-<body>
-<div>
-    <h1>Snake</h1>
-</div>
-<div id='board-conatiner'>
-    <canvas id="game-board" height="800px" width="800px"></canvas>
 
-</div>
-    
+<body>
+    <div>
+        <h1>Snake</h1>
+    </div>
+    <div id='board-conatiner'>
+        <div id="score-container">
+            <h2>Player Score</h2>
+        </div>
+
+        <canvas id="game-board" height="800px" width="800px"></canvas>
+        <div id="rules-container">
+            <h2>Rules</h2>
+        </div>
+
+    </div>
+
     <script src="app.js"></script>
 </body>
+
 </html>

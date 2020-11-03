@@ -14,3 +14,9 @@ h1 {
     margin: 20px auto;
     text-align: center;
 }
+
+#player-score {
+    background: red;
+    position: relative;
+    width: 80px;
+}
