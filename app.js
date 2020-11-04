@@ -3,8 +3,20 @@ const canvasContext = gameCanvas.getContext('2d');
 let snakeHorizontal = 100;
 let snakeVertical;
 
+const drawGameBoard = {
+    gameBoard: document.createElement('canvas'),
+    drawBoard: function() {
+        this.gameBoard.width = 800;
+        this.gameBoard.height = 800;
+        this.context = this.gameBoard.getContext('2d');
+        this.gameBoard.fillStyle = 'black';
+    }
+}
 
 
+function updateGameBoard() {
+    drawGameBoard.drawBoard();
+}
 
 
 function drawSnake() {
@@ -32,6 +44,7 @@ function moveSnake() {
     }
 
 
-drawSnake();
-drawApple();
-moveSnake();
+updateGameBoard();
+//!drawSnake();
+//!drawApple();
+//!moveSnake();
