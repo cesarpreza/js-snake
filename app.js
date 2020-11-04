@@ -4,6 +4,8 @@ let snakeHorizontal = 100;
 let snakeVertical;
 
 
+
+
 function drawSnake() {
     canvasContext.fillStyle = 'blue';
     canvasContext.fillRect(snakeHorizontal, 300, 15, 15);
