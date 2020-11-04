@@ -8,7 +8,11 @@ let snakeVertical;
 function drawSnake() {
     snakeHorizontal = snakeHorizontal + 10;
     canvasContext.fillStyle = 'blue';
-    canvasContext.fillRect(snakeHorizontal, 300, 20, 20);
+    canvasContext.fillRect(100, 300, 20, 20);
+    canvasContext.fillstyle = 'blue';
+    canvasContext.fillRect(80, 300, 20, 20);
+    canvasContext.fillStyle = 'blue';
+    canvasContext.fillRect(60, 300, 20, 20);
     console.log(snakeHorizontal); //TODO delete console.log 
 
 }
@@ -21,13 +25,13 @@ function drawApple() {
 function moveSnake() {
     //TODO moves snake body + 10 every second by arrow pressed
     document.addEventListener('keydown', (e) => {
-        if(e.which === 39) {
-            
+        if (e.which === 39) {
+
             setInterval(drawSnake, 200);
             console.log('right arrow pressed')
         }
-        });
-    }
+    });
+}
 
 
 drawSnake();
