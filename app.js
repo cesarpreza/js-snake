@@ -1,6 +1,6 @@
 const gameCanvas = document.getElementById('game-board');
 const canvasContext = gameCanvas.getContext('2d');
-let snakeHorizontal = 100;
+let snakeHorizontal;
 let snakeVertical;
 
 let snakeBody = [
@@ -15,6 +15,11 @@ snakeBodyCopy = [
     { x: 60, y: 300 }
 ]
 
+function main() {
+    drawGameBoard(); //!Clears the game Canvas
+    drawSnake(); //! Draws the snake body parts
+}
+
 function drawGameBoard() {
     
     canvasContext.fillStyle = 'black';
@@ -22,14 +27,22 @@ function drawGameBoard() {
 }
 
 function drawSnake() {
-    canvasContext.fillStyle = 'blue';
-    canvasContext.fillRect(snakeBody.x[0], snakeBody.y[0], 20, 20);
-    console.log(snakeHorizontal); //TODO delete console.log 
+    snakeBody.forEach(snakeParts);
 }
 
 
+function snakeParts(snakePart) {
+    canvasContext.fillStyle = 'blue';
+    canvasContext.strokeStyle = 'gray';
+    canvasContext.fillRect(snakePart.x, snakePart.y, 20, 20);
+    canvasContext.strokeRect(snakePart.x, snakePart.y, 20, 20);
+}
+
+
+
+
 //! Draw canvas in CSS commented out. EDIT OR DELETE
-//! Draw apple function here.
+//! Draw apple function here. Comment lower function!
 // function drawApple() {
 //     canvasContext.fillStyle = 'green';
 //     canvasContext.fillRect(500, 300, 20, 20);
@@ -46,7 +59,10 @@ function moveSnake() {
     });
 }
 
-drawGameBoard();
-drawSnake();
-drawApple();
+
+
+main();
+
+//!drawApple();
+
 moveSnake();
