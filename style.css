@@ -9,12 +9,11 @@ body {
 
 
 
-/* canvas {
-    background: black;
+canvas {
     display: block;
     margin: 20px auto;
 
-} */
+}
 
 h1 {
     font-size: 4rem;
