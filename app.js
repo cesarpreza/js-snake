@@ -1,4 +1,5 @@
-
+const gameCanvas = document.getElementById('game-board');
+const canvasContext = gameCanvas.getContext('2d');
 let snakeHorizontal = 100;
 let snakeVertical;
 
@@ -14,9 +15,9 @@ snakeBodyCopy = [
     { x: 60, y: 300 }
 ]
 
-function drawGameBoard {
-    const gameCanvas = document.getElementById('game-board');
-    const canvasContext = gameCanvas.getContext('2d');
+function drawGameBoard() {
+    
+    canvasContext.fillStyle = 'black';
     canvasContext.fillRect(0, 0, gameCanvas.width, gameCanvas.height );
 }
 
