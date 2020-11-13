@@ -16,6 +16,8 @@ snakeBodyCopy = [
     { x: 60, y: 300 }
 ]
 
+
+
 function gameRefresh() {
     setTimeout(function refresh() {
         drawGameBoard(); //!Clears the game Canvas everytime its called
@@ -51,7 +53,7 @@ function moveSnake() {
     snakeBody.pop();
 }
 
-function snakeDirection(e) { //! ARROW PRESSED EVENT LISTENER
+function snakeDirection(e) {
     const arrowUp = 38;
     const arrowDown = 40;
     const arrowRight = 39;
@@ -62,7 +64,28 @@ function snakeDirection(e) { //! ARROW PRESSED EVENT LISTENER
     const snakeMovesLeft = snakeX === - 10;
     const snakeMovesRight = snakeX === + 10;
 
+
+
+    if (arrowPressed === arrowUp && !snakeMovesDown) {
+        snakeY = + 10;
+        snakeX = + 0;
+        console.log("arrow up pressed");
+    } if (arrowPressed === arrowDown && !snakeMovesUp) {
+        snakeY = - 10;
+        snakeX = 0;
+        console.log("arrow down pressed");
+    } if (arrowPressed === arrowLeft && !snakeMovesRight) {
+        snakeY = 0;
+        snakeX = - 10;
+        console.log("arrow left pressed");
+    } if (arrowPressed === arrowRight && !snakeMovesLeft) {
+        snakeY = 0;
+        snakeX = + 10;
+        console.log("arrow right pressed");
+    }
 }
+
+document.addEventListener('onkeydown', snakeDirection());
 
 function gameOverDetection() {  //! SNAKE HAS HIT ITSELF OR HIT A BORDER
 
