@@ -1,7 +1,7 @@
 const gameCanvas = document.getElementById('game-board');
 const canvasContext = gameCanvas.getContext('2d');
-let snakeY = + 20;
-let snakeX = + 20;
+let snakeY = + 10;
+let snakeX = + 10;
 
 let snakeBody = [
     { x: 100, y: 300 },
@@ -15,15 +15,18 @@ snakeBodyCopy = [
     { x: 60, y: 300 }
 ]
 
-function main() {
-    drawGameBoard(); //!Clears the game Canvas
-    drawSnake(); //! Draws the snake body parts
-    moveSnake();
+function gameRefresh() {
+    setTimeout(function refresh() {
+        drawGameBoard(); //!Clears the game Canvas
+        moveSnake();
+        drawSnake(); //! Draws the snake body parts
+        gameRefresh();
+    }, 150)
 }
 
 function drawGameBoard() {
     canvasContext.fillStyle = 'black';
-    canvasContext.fillRect(0, 0, gameCanvas.width, gameCanvas.height );
+    canvasContext.fillRect(0, 0, gameCanvas.width, gameCanvas.height);
 }
 
 function drawSnake() {
@@ -34,18 +37,17 @@ function drawSnake() {
 function snakeParts(snakePart) {
     canvasContext.fillStyle = 'blue';
     canvasContext.strokeStyle = 'white';
-    canvasContext.fillRect(snakePart.x, snakePart.y, 20, 20);
-    canvasContext.strokeRect(snakePart.x, snakePart.y, 20, 20);
+    canvasContext.fillRect(snakePart.x, snakePart.y, 10, 10);
+    canvasContext.strokeRect(snakePart.x, snakePart.y, 10, 10);
 }
 
 function moveSnake() {
     const snakeHead = {
         x: snakeBody[0].x + snakeX,
-        y: snakeBody[0].y
+        y: snakeBody[0].y + snakeY
     }
     snakeBody.unshift(snakeHead);
     snakeBody.pop();
-    console.log(snakeHead);
 }
 
 
@@ -59,7 +61,7 @@ function moveSnake() {
 
 
 
-main();
+gameRefresh();
 
 //!drawApple();
 
