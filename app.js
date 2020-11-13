@@ -1,7 +1,8 @@
 const gameCanvas = document.getElementById('game-board');
 const canvasContext = gameCanvas.getContext('2d');
-let snakeY = + 10;
+let snakeY = + 0;
 let snakeX = + 10;
+
 
 let snakeBody = [
     { x: 100, y: 300 },
@@ -17,11 +18,11 @@ snakeBodyCopy = [
 
 function gameRefresh() {
     setTimeout(function refresh() {
-        drawGameBoard(); //!Clears the game Canvas
+        drawGameBoard(); //!Clears the game Canvas everytime its called
         moveSnake();
-        drawSnake(); //! Draws the snake body parts
+        drawSnake(); //! Draws the snake body parts in the new coordinates
         gameRefresh();
-    }, 150)
+    }, 100)
 }
 
 function drawGameBoard() {
@@ -50,9 +51,25 @@ function moveSnake() {
     snakeBody.pop();
 }
 
+function snakeDirection(e) { //! ARROW PRESSED EVENT LISTENER
+    const arrowUp = 38;
+    const arrowDown = 40;
+    const arrowRight = 39;
+    const arrowLeft = 37;
+    const arrowPressed = e.keycode;
+    const snakeMovesUp = snakeY === - 10;
+    const snakeMovesDown = snakeY === + 10;
+    const snakeMovesLeft = snakeX === - 10;
+    const snakeMovesRight = snakeX === + 10;
 
-//! Draw canvas in CSS commented out. EDIT OR DELETE
-//! Draw apple function here. Comment lower function!
+}
+
+function gameOverDetection() {  //! SNAKE HAS HIT ITSELF OR HIT A BORDER
+
+}
+
+
+//! Draw apple function here. Comment back in function at the borrom on inside GAMEREFRESH function
 // function drawApple() {
 //     canvasContext.fillStyle = 'green';
 //     canvasContext.fillRect(500, 300, 20, 20);
@@ -62,7 +79,7 @@ function moveSnake() {
 
 
 gameRefresh();
-
-//!drawApple();
+gameOverDetection();
+//!drawApple(); CALL HERE OR INSIDDE OF GAME REFRESH;
 
 
