@@ -27,6 +27,8 @@ function gameRefresh() {
     }, 100)
 }
 
+gameRefresh();
+
 function drawGameBoard() {
     canvasContext.fillStyle = 'black';
     canvasContext.fillRect(0, 0, gameCanvas.width, gameCanvas.height);
@@ -102,7 +104,7 @@ function gameOverDetection() {  //! SNAKE HAS HIT ITSELF OR HIT A BORDER
 
 
 
-gameRefresh();
+
 gameOverDetection();
 //!drawApple(); CALL HERE OR INSIDDE OF GAME REFRESH?;
 
