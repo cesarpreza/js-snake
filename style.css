@@ -27,4 +27,8 @@ h1 {
     width: 80px;
 }
 
+#score {
+    font-size: 2rem;
+    font-weight: 400;
+}
 

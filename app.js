@@ -94,7 +94,7 @@ function snakeDirection() {
 
 }
 
-
+snakeDirection();
 
 function gameOver() {  //! SNAKE HAS HIT ITSELF OR HIT A BORDER
     for (let i = 2; i < snakeBody.length; i++) {
@@ -119,8 +119,8 @@ function gameOver() {  //! SNAKE HAS HIT ITSELF OR HIT A BORDER
 
 
 
-snakeDirection();
-gameOver();
+
+
 //!drawApple(); CALL HERE OR INSIDDE OF GAME REFRESH?;
 
 
