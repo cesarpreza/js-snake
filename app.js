@@ -57,42 +57,42 @@ function moveSnake() {
 
 }
 
-function snakeDirection() {
-    const arrowUp = 38;
-    const arrowDown = 40;
-    const arrowRight = 39;
-    const arrowLeft = 37;
-    let snakeMovesUp = snakeY === - 10;
-    let snakeMovesDown = snakeY === + 10;
-    let snakeMovesLeft = snakeX === - 10;
-    let snakeMovesRight = snakeX === + 10;
+// function snakeDirection() {
+//     const arrowUp = 38;
+//     const arrowDown = 40;
+//     const arrowRight = 39;
+//     const arrowLeft = 37;
+//     let snakeMovesUp = snakeY === - 10;
+//     let snakeMovesDown = snakeY === + 10;
+//     let snakeMovesLeft = snakeX === - 10;
+//     let snakeMovesRight = snakeX === + 10;
 
-    if (changingDirection) return;
-    changingDirection = true;
-    document.addEventListener('keydown', (e) => {
-        if (e.keyCode === arrowUp && !snakeMovesDown) {
-            snakeY = - 10;
-            snakeX = + 0;
-            console.log("arrow up pressed");
-        }
-        if (e.keyCode === arrowDown && !snakeMovesUp) {
-            snakeY = + 10;
-            snakeX = 0;
-            console.log("arrow down pressed");
-        }
-        if (e.keyCode === arrowLeft || !snakeMovesRight) {
-            snakeY = 0;
-            snakeX = - 10;
-            console.log("arrow left pressed");
-        }
-        if (e.keyCode === arrowRight && !snakeMovesLeft) {
-            snakeY = 0;
-            snakeX = + 10;
-            console.log("arrow right pressed");
-        }
-    })
+//     if (changingDirection) return;
+//     changingDirection = true;
+//     document.addEventListener('keydown', (e) => {
+//         if (e.keyCode === arrowUp && !snakeMovesDown) {
+//             snakeY = - 10;
+//             snakeX = + 0;
+//             console.log("arrow up pressed");
+//         }
+//         if (e.keyCode === arrowDown && !snakeMovesUp) {
+//             snakeY = + 10;
+//             snakeX = 0;
+//             console.log("arrow down pressed");
+//         }
+//         if (e.keyCode === arrowLeft || !snakeMovesRight) {
+//             snakeY = 0;
+//             snakeX = - 10;
+//             console.log("arrow left pressed");
+//         }
+//         if (e.keyCode === arrowRight && !snakeMovesLeft) {
+//             snakeY = 0;
+//             snakeX = + 10;
+//             console.log("arrow right pressed");
+//         }
+//     })
 
-}
+//}
 
 snakeDirection();
 
