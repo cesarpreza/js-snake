@@ -55,40 +55,42 @@ function moveSnake() {
     snakeBody.pop();
 }
 
-function snakeDirection(move) {
+function snakeDirection() {
     const arrowUp = 38;
     const arrowDown = 40;
     const arrowRight = 39;
     const arrowLeft = 37;
-    const arrowPressed = move.keyCode;
-    const snakeMovesUp = snakeY === - 10;
-    const snakeMovesDown = snakeY === + 10;
-    const snakeMovesLeft = snakeX === - 10;
-    const snakeMovesRight = snakeX === + 10;
+    //const arrowPressed = e.keyCode;
+    let snakeMovesUp = snakeY === - 10;
+    let snakeMovesDown = snakeY === + 10;
+    let snakeMovesLeft = snakeX === - 10;
+    let snakeMovesRight = snakeX === + 10;
 
-    if (changingDirection) return;
-    changingDirection = true;
+    // if (changingDirection) return;
+    // changingDirection = true;
+    document.addEventListener('onKeyDown', (e) => {
+        if (e.which === arrowUp && !snakeMovesDown) {
+            snakeY = - 10;
+            snakeX = + 0;
+            console.log("arrow up pressed");
+        } if (e.which === arrowDown && !snakeMovesUp) {
+            snakeY = + 10;
+            snakeX = 0;
+            console.log("arrow down pressed");
+        } if (e.which === arrowLeft && !snakeMovesRight) {
+            snakeY = 0;
+            snakeX = - 10;
+            console.log("arrow left pressed");
+        } if (e.which === arrowRight && !snakeMovesLeft) {
+            snakeY = 0;
+            snakeX = + 10;
+            console.log("arrow right pressed");
+        }
+    })
 
-    if (arrowPressed === arrowUp && !snakeMovesDown) {
-        snakeY = - 10;
-        snakeX = + 0;
-        console.log("arrow up pressed");
-    } if (arrowPressed === arrowDown && !snakeMovesUp) {
-        snakeY = + 10;
-        snakeX = 0;
-        console.log("arrow down pressed");
-    } if (arrowPressed === arrowLeft && !snakeMovesRight) {
-        snakeY = 0;
-        snakeX = - 10;
-        console.log("arrow left pressed");
-    } if (arrowPressed === arrowRight && !snakeMovesLeft) {
-        snakeY = 0;
-        snakeX = + 10;
-        console.log("arrow right pressed");
-    }
 }
 
-document.addEventListener('onkeydown', snakeDirection());
+
 
 function gameOverDetection() {  //! SNAKE HAS HIT ITSELF OR HIT A BORDER
 
@@ -104,7 +106,7 @@ function gameOverDetection() {  //! SNAKE HAS HIT ITSELF OR HIT A BORDER
 
 
 
-
+snakeDirection();
 gameOverDetection();
 //!drawApple(); CALL HERE OR INSIDDE OF GAME REFRESH?;
 
