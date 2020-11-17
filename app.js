@@ -111,10 +111,10 @@ function gameOver() {  //! SNAKE HAS HIT ITSELF OR HIT A BORDER
 
 
 //! Draw apple function here. Comment back in function at the borrom on inside GAMEREFRESH function
-// function drawApple() {
-//     canvasContext.fillStyle = 'green';
-//     canvasContext.fillRect(500, 300, 20, 20);
-// }
+function drawApple() {
+    canvasContext.fillStyle = 'green';
+    canvasContext.fillRect(500, 300, 20, 20);
+}
 
 
 
