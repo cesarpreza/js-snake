@@ -2,19 +2,21 @@ const gameCanvas = document.getElementById('game-board');
 const canvasContext = gameCanvas.getContext('2d');
 let snakeY = + 0;
 let snakeX = + 10;
-
-
 let snakeBody = [
     { x: 100, y: 300 },
     { x: 80, y: 300 },
     { x: 60, y: 300 }
-]
-
+];
 snakeBodyCopy = [
     { x: 100, y: 300 },
     { x: 80, y: 300 },
     { x: 60, y: 300 }
-]
+];
+
+let apple = [
+    { x: 500, y: 300 }
+];
+
 
 function gameRefresh() {
     changingDirection = false;
@@ -23,6 +25,8 @@ function gameRefresh() {
         drawGameBoard(); //!Clears the game Canvas everytime its called
         moveSnake();
         drawSnake(); //! Draws the snake body parts in the new coordinates
+        drawApple();
+        applePart();
         gameRefresh();
     }, 100)
 }
@@ -32,11 +36,11 @@ gameRefresh();
 function drawGameBoard() {
     canvasContext.fillStyle = 'black';
     canvasContext.fillRect(0, 0, gameCanvas.width, gameCanvas.height);
-}
+};
 
 function drawSnake() {
     snakeBody.forEach(snakeParts);
-}
+};
 
 
 function snakeParts(snakePart) {
@@ -44,7 +48,7 @@ function snakeParts(snakePart) {
     canvasContext.strokeStyle = 'white';
     canvasContext.fillRect(snakePart.x, snakePart.y, 10, 10);
     canvasContext.strokeRect(snakePart.x, snakePart.y, 10, 10);
-}
+};
 
 function moveSnake() {
     const snakeHead = {
@@ -56,6 +60,15 @@ function moveSnake() {
     snakeBody.pop();
 
 }
+
+function drawApple() {
+    apple.forEach(applePart);
+};
+
+function applePart(food) {
+    canvasContext.fillStyle = 'green';
+    canvasContext.fillRect(food.x, food.y, 10, 10);
+};
 
 function snakeDirection() {
     const arrowUp = 38;
@@ -92,7 +105,7 @@ function snakeDirection() {
         }
     })
 
-}
+};
 
 snakeDirection();
 
@@ -107,20 +120,4 @@ function gameOver() {  //! SNAKE HAS HIT ITSELF OR HIT A BORDER
     const hitBottom = snakeBody[0].y > gameCanvas.height - 10;
 
     return hitLeft || hitRight || hitTop || hitBottom;
-}
-
-
-//! Draw apple function here. Comment back in function at the borrom on inside GAMEREFRESH function
-function drawApple() {
-    canvasContext.fillStyle = 'green';
-    canvasContext.fillRect(500, 300, 20, 20);
-}
-
-
-
-
-
-
-//!drawApple(); CALL HERE OR INSIDDE OF GAME REFRESH?;
-
-
+};
