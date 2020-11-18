@@ -14,7 +14,7 @@ snakeBodyCopy = [
 ];
 
 let apple = [
-    { x: 500, y: 300 }
+    { x: Math.floor(600 * Math.random()), y: Math.floor(600 * Math.random()) }
 ];
 
 
@@ -26,7 +26,7 @@ function gameRefresh() {
         moveSnake();
         drawSnake(); //! Draws the snake body parts in the new coordinates
         drawApple();
-        applePart();
+        //applePart();
         gameRefresh();
     }, 100)
 }
@@ -63,11 +63,15 @@ function moveSnake() {
 
 function drawApple() {
     apple.forEach(applePart);
+    console.log('apple drawn'); //! Remove Console logs befor submit.
 };
 
-function applePart(food) {
+function applePart() {
     canvasContext.fillStyle = 'green';
-    canvasContext.fillRect(food.x, food.y, 10, 10);
+    canvasContext.fillRect(apple[0].x, apple[0].y, 10, 10);
+    if (snakeBody[0].x === apple[0].x) {
+        console.log('you hit the apple') //! console log hitting the apple 
+    }
 };
 
 function snakeDirection() {
@@ -86,22 +90,22 @@ function snakeDirection() {
         if (e.keyCode === arrowUp && !snakeMovesDown) {
             snakeY = - 10;
             snakeX = + 0;
-            console.log("arrow up pressed");
+            console.log("arrow up pressed"); //! remove console logs before submit
         }
         if (e.keyCode === arrowDown && !snakeMovesUp) {
             snakeY = + 10;
             snakeX = 0;
-            console.log("arrow down pressed");
+            console.log("arrow down pressed"); //! remove console logs before submit
         }
         if (e.keyCode === arrowLeft || !snakeMovesRight) {
             snakeY = 0;
             snakeX = - 10;
-            console.log("arrow left pressed");
+            console.log("arrow left pressed"); //! remove console logs before submit
         }
         if (e.keyCode === arrowRight && !snakeMovesLeft) {
             snakeY = 0;
             snakeX = + 10;
-            console.log("arrow right pressed");
+            console.log("arrow right pressed"); //! remove console logs before submit
         }
     })
 
