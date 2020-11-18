@@ -14,7 +14,7 @@ snakeBodyCopy = [
 ];
 
 let apple = [
-    { x: Math.floor(600 * Math.random()), y: Math.floor(600 * Math.random()) }
+    { x: Math.floor(Math.random() * (600 / 10)) * 10, y: Math.floor(Math.random() * (600 / 10)) * 10 }
 ];
 
 
