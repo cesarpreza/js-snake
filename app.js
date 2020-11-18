@@ -26,7 +26,7 @@ function gameRefresh() {
         moveSnake();
         drawSnake(); //! Draws the snake body parts in the new coordinates
         drawApple();
-        //applePart();
+        applePart();
         gameRefresh();
     }, 100)
 }
@@ -69,9 +69,10 @@ function drawApple() {
 function applePart() {
     canvasContext.fillStyle = 'green';
     canvasContext.fillRect(apple[0].x, apple[0].y, 10, 10);
-    if (snakeBody[0].x === apple[0].x) {
-        console.log('you hit the apple') //! console log hitting the apple 
+    if (snakeBody[0].x === apple[0].x && snakeBody[0].y === apple[0].y) {
+        console.log('snake hit the apple') //! console log hitting the apple 
     }
+    console.log(apple[0].x, apple[0].y); //!! Console log Apple coordinates
 };
 
 function snakeDirection() {
@@ -90,22 +91,18 @@ function snakeDirection() {
         if (e.keyCode === arrowUp && !snakeMovesDown) {
             snakeY = - 10;
             snakeX = + 0;
-            console.log("arrow up pressed"); //! remove console logs before submit
         }
         if (e.keyCode === arrowDown && !snakeMovesUp) {
             snakeY = + 10;
             snakeX = 0;
-            console.log("arrow down pressed"); //! remove console logs before submit
         }
         if (e.keyCode === arrowLeft || !snakeMovesRight) {
             snakeY = 0;
             snakeX = - 10;
-            console.log("arrow left pressed"); //! remove console logs before submit
         }
         if (e.keyCode === arrowRight && !snakeMovesLeft) {
             snakeY = 0;
             snakeX = + 10;
-            console.log("arrow right pressed"); //! remove console logs before submit
         }
     })
 
