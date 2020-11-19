@@ -1,3 +1,4 @@
+const DEBUG = true; //! Remove DEBUGGER ENVIRONMENT before submit
 const gameCanvas = document.getElementById('game-board');
 const canvasContext = gameCanvas.getContext('2d');
 let gameScore = 0;
@@ -17,6 +18,12 @@ let apple = [
 
 
 function gameRefresh() {
+    let gameInterval = 100;
+    if (DEBUG === true) {
+        apple[0].x = 150;
+        apple[0].y = 300;
+        gameInterval = 800;
+    }
     changingDirection = false;
     if (gameOver()) return;
     setTimeout(function refresh() {
@@ -26,7 +33,7 @@ function gameRefresh() {
         drawApple();
         applePart();
         gameRefresh();
-    }, 100)
+    }, gameInterval)
 }
 
 gameRefresh();
