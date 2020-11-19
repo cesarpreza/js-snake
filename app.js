@@ -1,5 +1,6 @@
 const gameCanvas = document.getElementById('game-board');
 const canvasContext = gameCanvas.getContext('2d');
+let gameScore = 0;
 let snakeY = + 0;
 let snakeX = + 10;
 let snakeBody = [
@@ -7,14 +8,11 @@ let snakeBody = [
     { x: 80, y: 300 },
     { x: 60, y: 300 }
 ];
-snakeBodyCopy = [
-    { x: 100, y: 300 },
-    { x: 80, y: 300 },
-    { x: 60, y: 300 }
-];
-
 let apple = [
-    { x: Math.floor(Math.random() * (600 / 10)) * 10, y: Math.floor(Math.random() * (600 / 10)) * 10 }
+    {
+        x: Math.floor(Math.random() * (600 / 10)) * 10,
+        y: Math.floor(Math.random() * (600 / 10)) * 10
+    }
 ];
 
 
@@ -22,9 +20,9 @@ function gameRefresh() {
     changingDirection = false;
     if (gameOver()) return;
     setTimeout(function refresh() {
-        drawGameBoard(); //!Clears the game Canvas everytime its called
+        drawGameBoard();
         moveSnake();
-        drawSnake(); //! Draws the snake body parts in the new coordinates
+        drawSnake();
         drawApple();
         applePart();
         gameRefresh();
@@ -63,17 +61,25 @@ function moveSnake() {
 
 function drawApple() {
     apple.forEach(applePart);
-    console.log('apple drawn'); //! Remove Console logs befor submit.
+    if (snakeBody[0].x === apple[0].x && snakeBody[0].y === apple[0].y) {
+        newApple();
+        console.log('hit apple')
+    }
 };
+
+function newApple() {
+    apple.x = Math.floor(Math.random() * (600 / 10)) * 10
+    apple.y = Math.floor(Math.random() * (600 / 10)) * 10
+}
 
 function applePart() {
     canvasContext.fillStyle = 'green';
+    canvasContext.strokeStyle = 'white'
     canvasContext.fillRect(apple[0].x, apple[0].y, 10, 10);
-    if (snakeBody[0].x === apple[0].x && snakeBody[0].y === apple[0].y) {
-        console.log('snake hit the apple') //! console log hitting the apple 
-    }
-    console.log(apple[0].x, apple[0].y); //!! Console log Apple coordinates
+    canvasContext.strokeRect(apple[0].x, apple[0].y, 10, 10);
 };
+
+
 
 function snakeDirection() {
     const arrowUp = 38;
@@ -110,7 +116,7 @@ function snakeDirection() {
 
 snakeDirection();
 
-function gameOver() {  //! SNAKE HAS HIT ITSELF OR HIT A BORDER
+function gameOver() {
     for (let i = 2; i < snakeBody.length; i++) {
         if (snakeBody[i].x === snakeBody[0].x && snakeBody[i].y === snakeBody[0].y)
             return true;
