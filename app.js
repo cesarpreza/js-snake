@@ -76,7 +76,9 @@ function snakeEatsApple() {
             x: Math.floor(Math.random() * (600 / 10)) * 10,
             y: Math.floor(Math.random() * (600 / 10)) * 10
         }
-        console.log('hit apple')
+        snakeBody.push(drawSnake);
+        console.log(`${apple.x}  ${apple.y}`) //! Console log Remove before submit
+        console.log('hit apple'); //! Console log Remove before submit
     }
 }
 
