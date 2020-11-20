@@ -26,6 +26,7 @@ function gameRefresh() {
     }
     changingDirection = false;
     if (gameOver()) return;
+    if (drawNewApple()) return;
     setTimeout(function refresh() {
         drawGameBoard();
         moveSnake();
@@ -68,15 +69,19 @@ function moveSnake() {
 
 function drawApple() {
     apple.forEach(applePart);
-    if (snakeBody[0].x === apple[0].x && snakeBody[0].y === apple[0].y) {
-        newApple();
-        console.log('hit apple')
-    }
 };
 
-function newApple() {
-    apple.x = Math.floor(Math.random() * (600 / 10)) * 10
-    apple.y = Math.floor(Math.random() * (600 / 10)) * 10
+function drawNewApple() {
+    const newApple = [
+        {
+            x: Math.floor(Math.random() * (600 / 10)) * 10,
+            y: Math.floor(Math.random() * (600 / 10)) * 10
+        }
+    ]
+    if (snakeBody[0].x === apple[0].x && snakeBody[0].y === apple[0].y) {
+        newApple;
+        console.log('hit apple')
+    }
 }
 
 function applePart() {
