@@ -22,11 +22,11 @@ function gameRefresh() {
     if (DEBUG === true) {
         apple[0].x = 150;
         apple[0].y = 300;
-        gameInterval = 800;
+        gameInterval = 500;
     }
     changingDirection = false;
     if (gameOver()) return;
-    if (drawNewApple()) return;
+    if (snakeEatsApple()) return; //! fires when snake hits apple
     setTimeout(function refresh() {
         drawGameBoard();
         moveSnake();
@@ -71,7 +71,7 @@ function drawApple() {
     apple.forEach(applePart);
 };
 
-function drawNewApple() {
+function snakeEatsApple() {
     const newApple = [
         {
             x: Math.floor(Math.random() * (600 / 10)) * 10,
@@ -79,7 +79,7 @@ function drawNewApple() {
         }
     ]
     if (snakeBody[0].x === apple[0].x && snakeBody[0].y === apple[0].y) {
-        newApple;
+        newApple.push();
         console.log('hit apple')
     }
 }
