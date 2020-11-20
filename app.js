@@ -1,4 +1,4 @@
-const DEBUG = true; //! Remove DEBUGGER ENVIRONMENT before submit
+const DEBUG = false; //! Remove DEBUGGER ENVIRONMENT before submit
 const gameCanvas = document.getElementById('game-board');
 const canvasContext = gameCanvas.getContext('2d');
 let gameScore = 0;
@@ -9,19 +9,18 @@ let snakeBody = [
     { x: 80, y: 300 },
     { x: 60, y: 300 }
 ];
-let apple = [
-    {
-        x: Math.floor(Math.random() * (600 / 10)) * 10,
-        y: Math.floor(Math.random() * (600 / 10)) * 10
-    }
-];
+let apple =
+{
+    x: Math.floor(Math.random() * (600 / 10)) * 10,
+    y: Math.floor(Math.random() * (600 / 10)) * 10
+};
 
 
 function gameRefresh() {
     let gameInterval = 100;
     if (DEBUG === true) {
-        apple[0].x = 150;
-        apple[0].y = 300;
+        apple.x = 150;
+        apple.y = 300;
         gameInterval = 500;
     }
     changingDirection = false;
@@ -68,18 +67,15 @@ function moveSnake() {
 }
 
 function drawApple() {
-    apple.forEach(applePart);
+    Object.keys(apple).forEach(applePart);
 };
 
 function snakeEatsApple() {
-    const newApple = [
-        {
+    if (snakeBody[0].x === apple.x && snakeBody[0].y === apple.y) {
+        apple = {
             x: Math.floor(Math.random() * (600 / 10)) * 10,
             y: Math.floor(Math.random() * (600 / 10)) * 10
         }
-    ]
-    if (snakeBody[0].x === apple[0].x && snakeBody[0].y === apple[0].y) {
-        newApple.push();
         console.log('hit apple')
     }
 }
@@ -87,8 +83,8 @@ function snakeEatsApple() {
 function applePart() {
     canvasContext.fillStyle = 'green';
     canvasContext.strokeStyle = 'white'
-    canvasContext.fillRect(apple[0].x, apple[0].y, 10, 10);
-    canvasContext.strokeRect(apple[0].x, apple[0].y, 10, 10);
+    canvasContext.fillRect(apple.x, apple.y, 10, 10);
+    canvasContext.strokeRect(apple.x, apple.y, 10, 10);
 };
 
 
