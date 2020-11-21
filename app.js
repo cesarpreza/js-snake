@@ -1,7 +1,7 @@
-const DEBUG = true; //! Remove DEBUGGER ENVIRONMENT before submit
+const DEBUG = false; //! Remove DEBUGGER ENVIRONMENT before submit
 const gameCanvas = document.getElementById('game-board');
 const canvasContext = gameCanvas.getContext('2d');
-let gameScore = 0;
+let score = 0;
 let snakeY = + 0;
 let snakeX = + 10;
 let snakeBody = [
@@ -66,17 +66,19 @@ function moveSnake() {
 }
 
 function drawApple() {
-    Object.values(apple).forEach(applePart);
+    Object.keys(apple).forEach(applePart);
 };
 
 function snakeEatsApple() {
-    const newApple = 
-        {
+    let gameScore = document.getElementById('score');
+    if (snakeBody[0].x === apple.x && snakeBody[0].y === apple.y) {
+        apple = {
             x: Math.floor(Math.random() * (600 / 10)) * 10,
             y: Math.floor(Math.random() * (600 / 10)) * 10
         };
-    if (snakeBody[0].x === apple.x && snakeBody[0].y === apple.y) {
-        drawApple();
+        snakeBody.push(drawSnake);
+    score++;
+    gameScore.textContent = score;
         console.log('hit apple')
     }
 }
