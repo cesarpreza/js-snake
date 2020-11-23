@@ -1,4 +1,3 @@
-const DEBUG = false; //! Remove DEBUGGER ENVIRONMENT before submit
 const gameCanvas = document.getElementById('game-board');
 const canvasContext = gameCanvas.getContext('2d');
 let score = 0;
@@ -10,21 +9,16 @@ let snakeBody = [
     { x: 60, y: 300 }
 ];
 let apple = {
-        x: Math.floor(Math.random() * (600 / 10)) * 10,
-        y: Math.floor(Math.random() * (600 / 10)) * 10
-    };
+    x: Math.floor(Math.random() * (600 / 10)) * 10,
+    y: Math.floor(Math.random() * (600 / 10)) * 10
+};
 
 
 function gameRefresh() {
     let gameInterval = 100;
-    if (DEBUG === true) {
-        apple.x = 150;
-        apple.y = 300;
-        gameInterval = 500;
-    }
     changingDirection = false;
     if (gameOver()) return;
-    if (snakeEatsApple()) return; //! fires when snake hits apple
+    if (snakeEatsApple()) return;
     setTimeout(function refresh() {
         drawGameBoard();
         moveSnake();
@@ -77,9 +71,8 @@ function snakeEatsApple() {
             y: Math.floor(Math.random() * (600 / 10)) * 10
         };
         snakeBody.push(drawSnake);
-    score++;
-    gameScore.textContent = score;
-        console.log('hit apple')
+        score++;
+        gameScore.textContent = score;
     }
 }
 

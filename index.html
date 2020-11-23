@@ -9,22 +9,22 @@
 </head>
 
 <body>
-    <div>
+    <div id='header'>
         <h1>Snake</h1>
     </div>
-    <div id='board-conatiner'>
+    <div id='board-container'>
         <div id="score-container">
-            <h2>Player Score</h2>
+            <h2 id='score-text'>Player Score</h2>
             <p id='score'>0</p>
         </div>
-
-        <canvas id="game-board" height="600" width="600"></canvas>
+        <div id='canvas-container'>
+            <canvas id="game-board" height="600" width="600"></canvas>
+        </div>
         <div id="rules-container">
             <h2>Rules</h2>
+            <button>Restart</button>
         </div>
-
     </div>
-
     <script src="app.js"></script>
 </body>
 
