@@ -4,15 +4,40 @@
 }
 
 body { 
-    background-color: #cdc9c3;
+    background-color: #27323a;
 }
 
+#restart-button {
+    align-self: center;
+    border: none;
+    display: flex;
+    font-family: 'Inder', sans-serif;
+    height: 30px;
+    width: 75px;
+}
 
+#restart-button:active {
+    transform: translateY(2px) translateX(1px);
+}
+
+#restart-button:focus {
+    outline: none;
+}
+
+#restart-button:hover {
+    background-color: darkgrey;
+}
 
 canvas {
     display: block;
+    outline:  #006a71 3px solid;
     margin: 20px auto;
 
+}
+
+.game-rules {
+    font-family: 'Inder', sans-serif;
+    padding: 10px;
 }
 
 #player-score {
@@ -21,54 +46,80 @@ canvas {
     width: 80px;
 }
 
-/* adjust background color */
 #header {
-    background-color: cyan;
+    color: #ebebeb;
     display: flex;
+    font-family: 'Bangers', cursive;
+    flex-direction: row;
+    font-size: 3rem;
+    font-weight: 400;
+    height: 150px;
+    margin-left: 45%;
     position: absolute;
-    flex-direction: column;
-    font-size: 2rem;
-    font-weight: 700;
-    justify-content: center;
-    width: 200px;
+    width: 250px;
 }
 
 #board-container {
-    background-color: coral;
     display: flex;
     height: 100vh;
     justify-content: space-evenly;
     flex-wrap: wrap;
 }
 
+#rules {
+    color: #ebebeb;
+    font-family: 'Doppio One', sans-serif;
+    font-size: 2rem;
+    text-align: center;
+}
+
 #rules-container {
-    background-color: aquamarine;
-    flex-basis: 200px;
+    align-self: center;
+    background-color: #006a71;
+    border-radius: 2%;
+    color: #f6f6f6;
+    display: flex;
+    flex-basis: 250px;
+    flex-direction: column;
+    height: 50%;
+    justify-content: space-evenly;
+    
 }
 
 #canvas-container {
     align-self: center;
-    background-color: blueviolet;
-    opacity: 50%;
     display: flex;
 }
 
 
 /* adjust background color */
 #score-container { 
-    background-color: aquamarine;
+    align-self: center;
+    background-color: #006a71;
+    border-radius: 2%;
+    color: #ebebeb;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    height: 50%;
+    justify-content: center;
     flex-basis: 200px;
 }
 
 #score {
+    color: #ebebeb;
     font-size: 2rem;
     font-weight: 400;
+    text-align: center;
 }
 
 #score-text {
+    text-align: center;
+    font-family: 'Doppio One', sans-serif;
     font-size: 2rem;
     margin: 10px;
+}
+
+#title {
+    display: flex;
+    align-self: center;
 }

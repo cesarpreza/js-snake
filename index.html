@@ -4,25 +4,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Doppio+One&family=Inder&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Snake Game</title>
 </head>
 
 <body>
     <div id='header'>
-        <h1>Snake</h1>
+        <h1 id='title'>Snake</h1>
     </div>
     <div id='board-container'>
         <div id="score-container">
             <h2 id='score-text'>Player Score</h2>
-            <p id='score'>0</p>
+            <p class='game-rules' id='score'>0</p>
         </div>
         <div id='canvas-container'>
             <canvas id="game-board" height="600" width="600"></canvas>
         </div>
         <div id="rules-container">
-            <h2>Rules</h2>
-            <button>Restart</button>
+            <h1 id='rules'>Rules</h1>
+            <p class='game-rules'>Use keyboard arrow keys to control snake</p>
+            <p class='game-rules'>Snake grows with every apple eaten, eat as many as you can</p>
+            <p class='game-rules'>Game ends if snake hits itself or a boarder</p>
+            <button id='restart-button'>Try Again</button>
         </div>
     </div>
     <script src="app.js"></script>
