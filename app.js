@@ -130,6 +130,5 @@ function gameOver() {
     const hitRight = snakeBody[0].x > gameCanvas.width - 10;
     const hitTop = snakeBody[0].y < 0;
     const hitBottom = snakeBody[0].y > gameCanvas.height - 10;
-
     return hitLeft || hitRight || hitTop || hitBottom;
 };
