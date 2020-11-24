@@ -16,7 +16,7 @@ let apple = {
 
 
 function gameRefresh() {
-    let gameInterval = 100;
+    let gameInterval = 75;
     changingDirection = false;
     if (gameOver()) return;
     if (snakeEatsApple()) return;
