@@ -30,7 +30,7 @@ function gameRefresh() {
     }, gameInterval)
 }
 
-window.onload(gameRefresh());
+gameRefresh();
 
 function drawGameBoard() {
     canvasContext.fillStyle = 'black';
