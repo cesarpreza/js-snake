@@ -1,5 +1,6 @@
 const gameCanvas = document.getElementById('game-board');
 const canvasContext = gameCanvas.getContext('2d');
+const restartButton = document.getElementById('restart-button');
 let score = 0;
 let snakeY = + 0;
 let snakeX = + 10;
@@ -29,7 +30,7 @@ function gameRefresh() {
     }, gameInterval)
 }
 
-gameRefresh();
+window.onload(gameRefresh());
 
 function drawGameBoard() {
     canvasContext.fillStyle = 'black';

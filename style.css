@@ -9,7 +9,9 @@ body {
 
 #restart-button {
     align-self: center;
+    background-color:#27323a;
     border: none;
+    color: #ebebeb;
     display: flex;
     font-family: 'Inder', sans-serif;
     height: 30px;
