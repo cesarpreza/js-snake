@@ -16,7 +16,7 @@ Play [Snake](https://cesarpreza.github.io/js-snake/)
  
  # Summary
  
- This game was tons of fun to work on. This is the second game I've made, my first being a Rock Paper Scissors game which you can also check out [here](https://cesarpreza.github.io/rock-paper-scissors/). The progress I've made working on this project was imence and I feel myself really becoming what I've hoped for 
+ This game was tons of fun to work on. This is the second game I've made, my first being a Rock Paper Scissors game which you can also check out [here](https://cesarpreza.github.io/rock-paper-scissors/). The progress I've made working on this project was immense and I feel myself really becoming what I've hoped for 
  for a very long time. Though I have a long way to go this was a big mountain to climb and I am extremly proud to have made it to the top of this one. I'm very much looking 
  forward to the next project that comes my way and equally excited to put what I've learned through making this snake game into my future projects. 
  
